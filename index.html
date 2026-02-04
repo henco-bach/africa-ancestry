@@ -13,46 +13,30 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="glow"></div>
+    <div class="grain"></div>
     <header class="hero">
       <nav class="nav">
-        <div class="logo">
-          <span class="logo-dot"></span>
-          African Ancestry
-        </div>
-        <div class="nav-actions">
-          <button class="ghost">Daily Scroll</button>
-          <button class="primary">Get Your Lineage</button>
-        </div>
+        <div class="logo">African Ancestry</div>
+        <button class="ghost">Daily Insight</button>
       </nav>
 
-      <section class="hero-grid">
+      <div class="hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Lineage + Daily Guidance</p>
-          <h1>Discover the tribe that echoes through your name.</h1>
+          <p class="eyebrow">Ancestral Profile</p>
+          <h1>Your name remembers. Let it speak.</h1>
           <p class="subhead">
-            African Ancestry blends personal lineage stories with daily ancestral
-            insights. Enter your details, select a tribe, and receive a profile
-            that feels like it was written by your elders.
+            Enter your details and receive a personal ancestral profile inspired
+            by African lineage traditions. A modern ritual for reconnecting with
+            where you come from.
           </p>
-          <div class="hero-stats">
-            <div>
-              <p class="stat">112</p>
-              <p class="label">Lineage motifs</p>
-            </div>
-            <div>
-              <p class="stat">365</p>
-              <p class="label">Daily updates</p>
-            </div>
-            <div>
-              <p class="stat">24/7</p>
-              <p class="label">Ancestor energy</p>
-            </div>
+          <div class="cta-row">
+            <button class="primary" id="scroll-cta">Reveal your lineage</button>
+            <p class="price">Ancestral Profile · $19</p>
           </div>
         </div>
 
-        <div class="hero-card">
-          <h2>Your Ancestral Profile</h2>
+        <div class="form-card" id="form-card">
+          <h2>Start your profile</h2>
           <form id="lineage-form">
             <label>
               First name
@@ -81,103 +65,54 @@
             </label>
             <button class="primary full" type="submit">Reveal lineage</button>
           </form>
-          <p class="micro">
-            We’ll generate a lineage story now, and connect to real data later.
-          </p>
+          <p class="micro">Instant preview. Full profile after purchase.</p>
         </div>
-      </section>
+      </div>
     </header>
 
-    <main class="content">
-      <section class="panel" id="profile-panel">
+    <main class="content" id="results">
+      <section class="panel preview">
         <div class="panel-header">
-          <h3>Personal Profile</h3>
-          <span class="tag">Generated</span>
+          <h3>Preview</h3>
+          <span class="tag">Unlocked</span>
         </div>
-        <div class="panel-body" id="profile-output">
-          <p class="placeholder">Complete the form to see your lineage.</p>
+        <div class="panel-body" id="preview-output">
+          <p class="placeholder">Complete the form to see your preview.</p>
         </div>
       </section>
 
-      <section class="panel" id="lineage-panel">
+      <section class="panel locked">
         <div class="panel-header">
-          <h3>Lineage Highlights</h3>
-          <span class="tag">Heritage map</span>
+          <h3>Full Ancestral Profile</h3>
+          <span class="tag">Locked</span>
         </div>
         <div class="panel-body">
-          <ul id="lineage-list" class="lineage-list">
-            <li class="placeholder">Your lineage highlights will appear here.</li>
-          </ul>
+          <div id="profile-output">
+            <p class="placeholder">
+              Purchase to unlock your complete ancestral profile.
+            </p>
+          </div>
+          <div class="paywall">
+            <p class="price">Ancestral Profile · $19</p>
+            <button class="primary" id="unlock-button">Unlock profile</button>
+            <button class="ghost" id="copy-summary">Copy preview</button>
+          </div>
         </div>
       </section>
 
-      <section class="panel" id="daily-panel">
+      <section class="panel daily">
         <div class="panel-header">
-          <h3>Daily Updates</h3>
-          <span class="tag">Today</span>
+          <h3>Today’s Guidance</h3>
+          <span class="tag">Daily</span>
         </div>
         <div class="panel-body" id="daily-output">
-          <p class="placeholder">Your daily guidance will appear here.</p>
-        </div>
-      </section>
-
-      <section class="panel" id="schedule-panel">
-        <div class="panel-header">
-          <h3>Daily Schedule</h3>
-          <span class="tag">7 days</span>
-        </div>
-        <div class="panel-body">
-          <ul id="schedule-list" class="schedule-list">
-            <li class="placeholder">Your week of guidance will appear here.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="panel" id="share-panel">
-        <div class="panel-header">
-          <h3>Share Card</h3>
-          <span class="tag">Export</span>
-        </div>
-        <div class="panel-body share-wrap">
-          <div id="share-card" class="share-card">
-            <p class="share-title">African Ancestry</p>
-            <p class="share-name">Your lineage awaits</p>
-            <p class="share-tribe">Select a tribe to reveal</p>
-          </div>
-          <div class="share-actions">
-            <button id="download-card" class="ghost">Download card</button>
-            <button id="copy-summary" class="primary">Copy summary</button>
-          </div>
-          <p class="micro">Share as SVG today. PNG export coming soon.</p>
-        </div>
-      </section>
-
-      <section class="panel" id="future-panel">
-        <div class="panel-header">
-          <h3>Coming Soon</h3>
-          <span class="tag">Real data</span>
-        </div>
-        <div class="panel-body">
-          <div class="timeline">
-            <div class="timeline-item">
-              <h4>Verified genealogical links</h4>
-              <p>Connect to historical records and regional archives.</p>
-            </div>
-            <div class="timeline-item">
-              <h4>Daily ritual sync</h4>
-              <p>Personalized prompts based on moon phases and ancestral dates.</p>
-            </div>
-            <div class="timeline-item">
-              <h4>Community circles</h4>
-              <p>Meet others who share the same lineage signature.</p>
-            </div>
-          </div>
+          <p class="placeholder">Your daily guidance appears here.</p>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>Built for the future of remembrance. African Ancestry © 2026.</p>
+      <p>African Ancestry © 2026. Crafted for modern lineage seekers.</p>
     </footer>
 
     <script src="app.js"></script>
