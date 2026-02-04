@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>African Ancestry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="hero">
+      <nav class="nav">
+        <div class="logo">
+          <span class="logo-dot"></span>
+          African Ancestry
+        </div>
+        <div class="nav-actions">
+          <button class="ghost">Daily Scroll</button>
+          <button class="primary">Get Your Lineage</button>
+        </div>
+      </nav>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Lineage + Daily Guidance</p>
+          <h1>Discover the tribe that echoes in your name.</h1>
+          <p class="subhead">
+            African Ancestry blends personal lineage stories with daily ancestral
+            insights. Enter your details, select a tribe, and receive a profile
+            that feels like it was written by your elders.
+          </p>
+          <div class="hero-stats">
+            <div>
+              <p class="stat">112</p>
+              <p class="label">Lineage motifs</p>
+            </div>
+            <div>
+              <p class="stat">365</p>
+              <p class="label">Daily updates</p>
+            </div>
+            <div>
+              <p class="stat">24/7</p>
+              <p class="label">Ancestor energy</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2>Your Ancestral Profile</h2>
+          <form id="lineage-form">
+            <label>
+              First name
+              <input type="text" name="firstName" placeholder="Thandi" required />
+            </label>
+            <label>
+              Surname
+              <input type="text" name="lastName" placeholder="Nkosi" required />
+            </label>
+            <label>
+              Time of birth
+              <input type="time" name="birthTime" required />
+            </label>
+            <label>
+              Preferred tribe
+              <select name="tribe" required>
+                <option value="">Select a tribe</option>
+                <option value="Zulu">Zulu</option>
+                <option value="Xhosa">Xhosa</option>
+                <option value="Yoruba">Yoruba</option>
+                <option value="Ashanti">Ashanti</option>
+                <option value="Hausa">Hausa</option>
+                <option value="Shona">Shona</option>
+                <option value="Maasai">Maasai</option>
+              </select>
+            </label>
+            <button class="primary full" type="submit">Reveal lineage</button>
+          </form>
+          <p class="micro">
+            We’ll generate a lineage story now, and connect to real data later.
+          </p>
+        </div>
+      </section>
+    </header>
+
+    <main class="content">
+      <section class="panel" id="profile-panel">
+        <div class="panel-header">
+          <h3>Personal Profile</h3>
+          <span class="tag">Generated</span>
+        </div>
+        <div class="panel-body" id="profile-output">
+          <p class="placeholder">Complete the form to see your lineage.</p>
+        </div>
+      </section>
+
+      <section class="panel" id="lineage-panel">
+        <div class="panel-header">
+          <h3>Lineage Highlights</h3>
+          <span class="tag">Heritage map</span>
+        </div>
+        <div class="panel-body">
+          <ul id="lineage-list" class="lineage-list">
+            <li class="placeholder">Your lineage highlights will appear here.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel" id="daily-panel">
+        <div class="panel-header">
+          <h3>Daily Updates</h3>
+          <span class="tag">Today</span>
+        </div>
+        <div class="panel-body" id="daily-output">
+          <p class="placeholder">Your daily guidance will appear here.</p>
+        </div>
+      </section>
+
+      <section class="panel" id="future-panel">
+        <div class="panel-header">
+          <h3>Coming Soon</h3>
+          <span class="tag">Real data</span>
+        </div>
+        <div class="panel-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>Verified genealogical links</h4>
+              <p>Connect to historical records and regional archives.</p>
+            </div>
+            <div class="timeline-item">
+              <h4>Daily ritual sync</h4>
+              <p>Personalized prompts based on moon phases and ancestral dates.</p>
+            </div>
+            <div class="timeline-item">
+              <h4>Community circles</h4>
+              <p>Meet others who share the same lineage signature.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built for the future of remembrance. African Ancestry © 2026.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

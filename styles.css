@@ -1,0 +1,276 @@
+:root {
+  --ink: #f5f2eb;
+  --muted: #c7c1b6;
+  --coal: #0c0c0e;
+  --ember: #d47b4a;
+  --gold: #f0b86c;
+  --jade: #2e5d52;
+  --night: #111317;
+  --panel: rgba(18, 20, 24, 0.82);
+  --stroke: rgba(255, 255, 255, 0.08);
+  --shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top, #1a1f24, #0a0b0d 65%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/black-felt.png");
+  opacity: 0.25;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+.hero {
+  padding: 2.5rem 6vw 4rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.08rem;
+}
+
+.logo-dot {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, var(--gold), var(--ember));
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(240, 184, 108, 0.8);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  border: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid var(--stroke);
+  color: var(--ink);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--gold), var(--ember));
+  color: #1b140d;
+  box-shadow: 0 12px 30px rgba(212, 123, 74, 0.35);
+}
+
+.primary.full {
+  width: 100%;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-copy h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  margin-bottom: 1.2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.subhead {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.hero-stats {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.stat {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.hero-card {
+  background: var(--panel);
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--stroke);
+}
+
+.hero-card h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+label {
+  display: grid;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input,
+select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--stroke);
+  color: var(--ink);
+  padding: 0.75rem 0.9rem;
+  border-radius: 14px;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+  outline: 1px solid var(--gold);
+  box-shadow: 0 0 0 4px rgba(240, 184, 108, 0.15);
+}
+
+.micro {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.content {
+  display: grid;
+  gap: 2rem;
+  padding: 0 6vw 4rem;
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: 24px;
+  border: 1px solid var(--stroke);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.panel-header h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+}
+
+.tag {
+  background: rgba(240, 184, 108, 0.15);
+  color: var(--gold);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.05rem;
+}
+
+.placeholder {
+  color: var(--muted);
+}
+
+.spacer {
+  margin-top: 0.75rem;
+}
+
+.lineage-list {
+  display: grid;
+  gap: 0.8rem;
+  list-style: none;
+}
+
+.lineage-list li {
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+}
+
+.timeline {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.timeline-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.footer {
+  padding: 2rem 6vw 3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .nav-actions {
+    display: none;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+  }
+}
