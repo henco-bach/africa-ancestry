@@ -80,7 +80,8 @@ h1 {
   margin: 0.8rem 0 1rem;
 }
 
-h2 {
+h2,
+h3 {
   font-family: "DM Serif Display", serif;
 }
 
@@ -105,23 +106,6 @@ h2 {
   color: var(--muted);
 }
 
-.proof {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.proof-number {
-  font-family: "DM Serif Display", serif;
-  font-size: 1.4rem;
-}
-
-.proof-label {
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
 .hero-card {
   background: #fff;
   border-radius: 24px;
@@ -135,6 +119,40 @@ h2 {
   display: grid;
   gap: 0.6rem;
   list-style: none;
+  color: var(--muted);
+}
+
+.benefits,
+.proof {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+}
+
+.benefit,
+.proof-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.4rem;
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+}
+
+.benefit-title {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.benefit-body,
+.proof-body {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.proof-label {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.7rem;
   color: var(--muted);
 }
 
@@ -198,6 +216,34 @@ select {
 .micro {
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+.faq {
+  background: #fff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--stroke);
+  display: grid;
+  gap: 1rem;
+}
+
+.faq-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--stroke);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-q {
+  font-weight: 600;
+}
+
+.faq-a {
+  color: var(--muted);
+  margin-top: 0.4rem;
 }
 
 .screen {
