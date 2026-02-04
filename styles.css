@@ -45,17 +45,26 @@ body {
   letter-spacing: 0.2rem;
 }
 
-.screen {
-  padding: 0 8vw 6rem;
-  display: grid;
-  gap: 2.5rem;
+.pill {
+  border: none;
+  background: rgba(217, 133, 52, 0.12);
+  color: var(--caramel);
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
 }
 
-.welcome {
-  display: flex;
-  justify-content: space-between;
+.landing {
+  padding: 0 8vw 4rem;
+  display: grid;
+  gap: 3rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
   align-items: center;
-  gap: 2rem;
 }
 
 .welcome-label {
@@ -71,10 +80,141 @@ h1 {
   margin: 0.8rem 0 1rem;
 }
 
+h2 {
+  font-family: "DM Serif Display", serif;
+}
+
 .welcome-sub {
   color: var(--muted);
   line-height: 1.6;
   max-width: 520px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.price {
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.proof {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.proof-number {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.4rem;
+}
+
+.proof-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.hero-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--stroke);
+}
+
+.hero-card ul {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.6rem;
+  list-style: none;
+  color: var(--muted);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cta {
+  background: var(--ink);
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 14px;
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid var(--stroke);
+  padding: 0.8rem 1.2rem;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.form-wrap {
+  background: #fff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--stroke);
+  display: grid;
+  gap: 1.2rem;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+input,
+select {
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+}
+
+.paywall {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.micro {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.screen {
+  padding: 0 8vw 6rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
 }
 
 .avatar {
@@ -85,15 +225,6 @@ h1 {
   display: grid;
   place-items: center;
   color: #fff;
-  font-weight: 600;
-}
-
-.pill {
-  border: none;
-  background: rgba(217, 133, 52, 0.12);
-  color: var(--caramel);
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px;
   font-weight: 600;
 }
 
@@ -132,7 +263,6 @@ h1 {
 }
 
 .card-header h2 {
-  font-family: "DM Serif Display", serif;
   font-size: 1.8rem;
   margin-top: 0.4rem;
 }
@@ -216,69 +346,6 @@ h1 {
 .panel-body {
   margin-top: 0.8rem;
   line-height: 1.6;
-}
-
-.form-wrap {
-  background: #fff;
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--stroke);
-  display: grid;
-  gap: 1.2rem;
-}
-
-.form-wrap h3 {
-  font-family: "DM Serif Display", serif;
-}
-
-form {
-  display: grid;
-  gap: 1rem;
-}
-
-label {
-  display: grid;
-  gap: 0.4rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-input,
-select {
-  border: 1px solid var(--stroke);
-  border-radius: 12px;
-  padding: 0.75rem 0.9rem;
-  font-size: 1rem;
-}
-
-.cta {
-  background: var(--ink);
-  color: #fff;
-  padding: 0.9rem 1.5rem;
-  border: none;
-  border-radius: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.ghost {
-  background: transparent;
-  border: 1px solid var(--stroke);
-  padding: 0.8rem 1.2rem;
-  border-radius: 14px;
-  cursor: pointer;
-}
-
-.paywall {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.micro {
-  color: var(--muted);
-  font-size: 0.85rem;
 }
 
 .bottom-nav {

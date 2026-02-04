@@ -1,4 +1,7 @@
 const form = document.getElementById("lineage-form");
+const startCta = document.getElementById("start-cta");
+const dashboard = document.getElementById("dashboard");
+const startSection = document.getElementById("start");
 const ancestralName = document.getElementById("ancestral-name");
 const tribeValue = document.getElementById("tribe-value");
 const guideValue = document.getElementById("guide-value");
@@ -69,6 +72,10 @@ function updateDaily(seed) {
   dailyOutput.textContent = dailyThemes[seed];
 }
 
+startCta.addEventListener("click", () => {
+  startSection.scrollIntoView({ behavior: "smooth" });
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = new FormData(form);
@@ -88,6 +95,9 @@ form.addEventListener("submit", (event) => {
   guideValue.textContent = profile.guide;
   buildChips(profile.strengths);
   updateDaily(seed);
+
+  dashboard.classList.remove("hidden");
+  dashboard.scrollIntoView({ behavior: "smooth" });
 
   unlockButton.onclick = () => {
     guideValue.textContent = `${profile.guide} Full ancestral profile unlocked.`;

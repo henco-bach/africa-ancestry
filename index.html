@@ -16,17 +16,93 @@
     <div class="glow"></div>
     <header class="topbar">
       <div class="brand">Africa Ancestry</div>
-      <button class="pill">Premium Profile · $19</button>
+      <button class="pill">Ancestral Profile · $19</button>
     </header>
 
-    <main class="screen">
+    <main class="landing" id="landing">
+      <section class="hero">
+        <div>
+          <p class="welcome-label">Ancestral Profile</p>
+          <h1>Discover your ancestral profile.</h1>
+          <p class="welcome-sub">
+            A premium lineage experience inspired by African heritage. Enter your
+            details to receive a preview, then unlock your full profile.
+          </p>
+          <div class="hero-actions">
+            <button class="cta" id="start-cta">Start your profile</button>
+            <p class="price">One-time unlock · $19</p>
+          </div>
+          <div class="proof">
+            <div>
+              <p class="proof-number">7</p>
+              <p class="proof-label">Tribe paths</p>
+            </div>
+            <div>
+              <p class="proof-number">24/7</p>
+              <p class="proof-label">Daily guidance</p>
+            </div>
+            <div>
+              <p class="proof-number">Instant</p>
+              <p class="proof-label">Preview</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p class="card-label">What you receive</p>
+          <h2>Complete Ancestral Profile</h2>
+          <ul>
+            <li>Personal lineage story</li>
+            <li>Spirit guide + traits</li>
+            <li>Daily guidance prompt</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="form-wrap" id="start">
+        <h3>Start your profile</h3>
+        <form id="lineage-form">
+          <label>
+            First name
+            <input type="text" name="firstName" placeholder="Sipho" required />
+          </label>
+          <label>
+            Surname
+            <input type="text" name="lastName" placeholder="Manugabe" required />
+          </label>
+          <label>
+            Time of birth
+            <input type="time" name="birthTime" required />
+          </label>
+          <label>
+            Preferred tribe
+            <select name="tribe" required>
+              <option value="">Select a tribe</option>
+              <option value="Zulu">Zulu</option>
+              <option value="Xhosa">Xhosa</option>
+              <option value="Yoruba">Yoruba</option>
+              <option value="Ashanti">Ashanti</option>
+              <option value="Hausa">Hausa</option>
+              <option value="Shona">Shona</option>
+              <option value="Maasai">Maasai</option>
+            </select>
+          </label>
+          <button class="cta" type="submit">Reveal lineage</button>
+        </form>
+        <div class="paywall">
+          <button class="cta" id="unlock-button">Unlock full profile</button>
+          <button class="ghost" id="copy-summary">Copy preview</button>
+        </div>
+        <p class="micro">Instant preview. Full profile after purchase.</p>
+      </section>
+    </main>
+
+    <main class="screen hidden" id="dashboard">
       <section class="welcome">
         <div>
           <p class="welcome-label">Good afternoon</p>
-          <h1>Discover your ancestral profile.</h1>
+          <h2>Your lineage dashboard</h2>
           <p class="welcome-sub">
-            A playful, premium lineage experience. Enter your details, preview
-            your ancestry, and unlock the full profile.
+            Your preview is ready. Unlock your full ancestral profile below.
           </p>
         </div>
         <div class="avatar">AA</div>
@@ -68,43 +144,6 @@
           <button class="ghost" id="refresh-daily">↻</button>
         </div>
         <p id="daily-output" class="panel-body">Complete the form to receive guidance.</p>
-      </section>
-
-      <section class="form-wrap">
-        <h3>Start your profile</h3>
-        <form id="lineage-form">
-          <label>
-            First name
-            <input type="text" name="firstName" placeholder="Sipho" required />
-          </label>
-          <label>
-            Surname
-            <input type="text" name="lastName" placeholder="Manugabe" required />
-          </label>
-          <label>
-            Time of birth
-            <input type="time" name="birthTime" required />
-          </label>
-          <label>
-            Preferred tribe
-            <select name="tribe" required>
-              <option value="">Select a tribe</option>
-              <option value="Zulu">Zulu</option>
-              <option value="Xhosa">Xhosa</option>
-              <option value="Yoruba">Yoruba</option>
-              <option value="Ashanti">Ashanti</option>
-              <option value="Hausa">Hausa</option>
-              <option value="Shona">Shona</option>
-              <option value="Maasai">Maasai</option>
-            </select>
-          </label>
-          <button class="cta" type="submit">Reveal lineage</button>
-        </form>
-        <div class="paywall">
-          <button class="cta" id="unlock-button">Unlock full profile</button>
-          <button class="ghost" id="copy-summary">Copy preview</button>
-        </div>
-        <p class="micro">Instant preview. Full profile after purchase.</p>
       </section>
     </main>
 
