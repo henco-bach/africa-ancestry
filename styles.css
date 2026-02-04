@@ -1,14 +1,14 @@
 :root {
-  --ink: #f5f2eb;
-  --muted: #c7c1b6;
-  --coal: #0c0c0e;
-  --ember: #d47b4a;
-  --gold: #f0b86c;
-  --jade: #2e5d52;
-  --night: #111317;
-  --panel: rgba(18, 20, 24, 0.82);
-  --stroke: rgba(255, 255, 255, 0.08);
-  --shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  --ink: #151515;
+  --muted: #5f5f5f;
+  --cloud: #f6f3ef;
+  --sand: #efe6dc;
+  --ember: #d9734d;
+  --gold: #f1b97a;
+  --jade: #3c6f63;
+  --panel: rgba(255, 255, 255, 0.78);
+  --stroke: rgba(21, 21, 21, 0.08);
+  --shadow: 0 24px 50px rgba(25, 24, 22, 0.1);
   font-size: 16px;
 }
 
@@ -19,20 +19,21 @@
 }
 
 body {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Manrope", sans-serif;
   color: var(--ink);
-  background: radial-gradient(circle at top, #1a1f24, #0a0b0d 65%);
+  background: radial-gradient(circle at top, #ffffff, #f4ede4 55%, #eee3d6 100%);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-.noise {
+.glow {
   position: fixed;
   inset: 0;
-  background: url("https://www.transparenttextures.com/patterns/black-felt.png");
-  opacity: 0.25;
+  background: radial-gradient(circle at top left, rgba(241, 185, 122, 0.22), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(60, 111, 99, 0.18), transparent 60%);
+  opacity: 0.9;
   pointer-events: none;
-  mix-blend-mode: soft-light;
+  mix-blend-mode: multiply;
 }
 
 .hero {
@@ -50,7 +51,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: "Playfair Display", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 1.2rem;
   letter-spacing: 0.08rem;
 }
@@ -60,7 +61,7 @@ body {
   height: 12px;
   background: linear-gradient(135deg, var(--gold), var(--ember));
   border-radius: 50%;
-  box-shadow: 0 0 20px rgba(240, 184, 108, 0.8);
+  box-shadow: 0 0 20px rgba(241, 185, 122, 0.55);
 }
 
 .nav-actions {
@@ -82,15 +83,15 @@ button:hover {
 }
 
 .ghost {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.6);
   border: 1px solid var(--stroke);
   color: var(--ink);
 }
 
 .primary {
   background: linear-gradient(135deg, var(--gold), var(--ember));
-  color: #1b140d;
-  box-shadow: 0 12px 30px rgba(212, 123, 74, 0.35);
+  color: #2a1c11;
+  box-shadow: 0 14px 30px rgba(217, 115, 77, 0.25);
 }
 
 .primary.full {
@@ -105,7 +106,7 @@ button:hover {
 }
 
 .hero-copy h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "DM Serif Display", serif;
   font-size: clamp(2.5rem, 4vw, 3.8rem);
   margin-bottom: 1.2rem;
 }
@@ -133,7 +134,7 @@ button:hover {
 .stat {
   font-size: 2rem;
   font-weight: 700;
-  font-family: "Playfair Display", serif;
+  font-family: "DM Serif Display", serif;
 }
 
 .label {
@@ -147,10 +148,11 @@ button:hover {
   border-radius: 24px;
   box-shadow: var(--shadow);
   border: 1px solid var(--stroke);
+  backdrop-filter: blur(12px);
 }
 
 .hero-card h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "DM Serif Display", serif;
   margin-bottom: 1.5rem;
 }
 
@@ -168,7 +170,7 @@ label {
 
 input,
 select {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--stroke);
   color: var(--ink);
   padding: 0.75rem 0.9rem;
@@ -200,6 +202,7 @@ select:focus {
   border: 1px solid var(--stroke);
   padding: 1.5rem 2rem;
   box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
 }
 
 .panel-header {
@@ -210,13 +213,13 @@ select:focus {
 }
 
 .panel-header h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "DM Serif Display", serif;
   font-size: 1.4rem;
 }
 
 .tag {
-  background: rgba(240, 184, 108, 0.15);
-  color: var(--gold);
+  background: rgba(217, 115, 77, 0.12);
+  color: var(--ember);
   padding: 0.3rem 0.8rem;
   border-radius: 999px;
   font-size: 0.75rem;
@@ -239,9 +242,72 @@ select:focus {
 
 .lineage-list li {
   padding: 0.8rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 14px;
   border: 1px solid var(--stroke);
+}
+
+.schedule-list {
+  display: grid;
+  gap: 0.7rem;
+  list-style: none;
+}
+
+.schedule-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  font-size: 0.95rem;
+}
+
+.schedule-date {
+  font-weight: 600;
+}
+
+.schedule-note {
+  color: var(--muted);
+  text-align: right;
+}
+
+.share-wrap {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.share-card {
+  padding: 1.6rem;
+  border-radius: 20px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(135deg, rgba(241, 185, 122, 0.25), rgba(255, 255, 255, 0.8));
+  box-shadow: var(--shadow);
+}
+
+.share-title {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.share-name {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.6rem;
+  margin-top: 0.6rem;
+}
+
+.share-tribe {
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+.share-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .timeline {
