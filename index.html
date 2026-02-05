@@ -7,76 +7,60 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Manrope:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="glow"></div>
-    <header class="topbar">
-      <div class="brand">Africa Ancestry</div>
-      <button class="pill">Ancestral Profile · $19</button>
+    <div class="blob"></div>
+    <header class="nav">
+      <div class="brand">
+        <span class="brand-icon">AA</span>
+        Africa Ancestry
+      </div>
+      <button class="pill">Unlock Ancestral Profile · $19</button>
     </header>
 
-    <main class="landing" id="landing">
+    <main class="landing">
       <section class="hero">
-        <div>
-          <p class="welcome-label">Ancestral Profile</p>
-          <h1>Discover your ancestral profile.</h1>
-          <p class="welcome-sub">
-            A premium lineage experience inspired by African heritage. Enter your
-            details to receive a preview, then unlock your full profile.
+        <div class="hero-copy">
+          <p class="eyebrow">Ancestral Profile</p>
+          <h1>Discover your lineage in a playful, premium way.</h1>
+          <p class="lead">
+            Africa Ancestry gives you a bright, friendly heritage wrap. Enter
+            your details, preview your profile, then unlock the full story.
           </p>
           <div class="hero-actions">
-            <button class="cta" id="start-cta">Start your profile</button>
+            <button class="cta" id="jump-to-form">Unlock Ancestral Profile</button>
             <p class="price">One-time unlock · $19</p>
+          </div>
+          <div class="hero-badges">
+            <span>Instant preview</span>
+            <span>One clear product</span>
+            <span>Daily guidance</span>
           </div>
         </div>
         <div class="hero-card">
-          <p class="card-label">What you receive</p>
-          <h2>Ancestral Profile</h2>
+          <div class="hero-card-top">
+            <p class="card-label">Your heritage wrap</p>
+            <div class="badge">★</div>
+          </div>
+          <h2>What you get</h2>
           <ul>
-            <li>Personal lineage story</li>
-            <li>Spirit guide + traits</li>
-            <li>Daily guidance prompt</li>
+            <li>Lineage story + key traits</li>
+            <li>Spirit guide + symbolic motifs</li>
+            <li>Daily ancestral guidance</li>
           </ul>
         </div>
       </section>
 
-      <section class="benefits">
-        <div class="benefit">
-          <p class="benefit-title">Instant preview</p>
-          <p class="benefit-body">See a personalized lineage snapshot right away.</p>
+      <section class="form-section" id="form">
+        <div>
+          <h2>Start your profile</h2>
+          <p class="lead">We’ll create a preview, then unlock the full profile.</p>
         </div>
-        <div class="benefit">
-          <p class="benefit-title">One clear product</p>
-          <p class="benefit-body">A single ancestral profile, crafted to feel premium.</p>
-        </div>
-        <div class="benefit">
-          <p class="benefit-title">Daily guidance</p>
-          <p class="benefit-body">A focused message to connect each day.</p>
-        </div>
-      </section>
-
-      <section class="proof">
-        <div class="proof-card">
-          <p class="proof-label">Loved on TikTok</p>
-          <p class="proof-body">“It felt like my name finally made sense.”</p>
-        </div>
-        <div class="proof-card">
-          <p class="proof-label">Fast + premium</p>
-          <p class="proof-body">“Clean design, clear story, worth it.”</p>
-        </div>
-        <div class="proof-card">
-          <p class="proof-label">Daily ritual</p>
-          <p class="proof-body">“The daily guidance keeps me grounded.”</p>
-        </div>
-      </section>
-
-      <section class="form-wrap" id="start">
-        <h3>Start your profile</h3>
-        <form id="lineage-form">
+        <form class="form-card" id="lineage-form">
           <label>
             First name
             <input type="text" name="firstName" placeholder="Sipho" required />
@@ -102,85 +86,26 @@
               <option value="Maasai">Maasai</option>
             </select>
           </label>
-          <button class="cta" type="submit">Reveal lineage</button>
+          <button class="cta" type="submit">Generate preview</button>
+          <p class="micro">You’ll be taken to your preview page.</p>
         </form>
-        <div class="paywall">
-          <button class="cta" id="unlock-button">Unlock full profile</button>
-          <button class="ghost" id="copy-summary">Copy preview</button>
-        </div>
-        <p class="micro">Instant preview. Full profile after purchase.</p>
-      </section>
-
-      <section class="faq">
-        <h3>FAQ</h3>
-        <div class="faq-item">
-          <p class="faq-q">What do I get?</p>
-          <p class="faq-a">A premium ancestral profile with lineage story, traits, and daily guidance.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">Is this real data?</p>
-          <p class="faq-a">This is a crafted profile now, with real lineage data coming later.</p>
-        </div>
-        <div class="faq-item">
-          <p class="faq-q">How fast is delivery?</p>
-          <p class="faq-a">Instant preview, full profile unlock immediately after purchase.</p>
-        </div>
       </section>
     </main>
 
-    <main class="screen hidden" id="dashboard">
-      <section class="welcome">
-        <div>
-          <p class="welcome-label">Your preview</p>
-          <h2>Lineage dashboard</h2>
-          <p class="welcome-sub">Unlock your full ancestral profile below.</p>
-        </div>
-        <div class="avatar">AA</div>
-      </section>
+    <footer class="footer">
+      <div>
+        <h4>Resources</h4>
+        <p>Profile FAQs</p>
+        <p>Support</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <p>About</p>
+        <p>Privacy</p>
+        <p>Terms</p>
+      </div>
+    </footer>
 
-      <section class="card">
-        <div class="card-header">
-          <div>
-            <p class="card-label">Ancestral Name</p>
-            <h2 id="ancestral-name">Your profile awaits</h2>
-          </div>
-          <div class="badge">🌍</div>
-        </div>
-        <div class="card-grid">
-          <div class="card-panel">
-            <p class="panel-label">Tribe</p>
-            <p class="panel-value" id="tribe-value">Select to reveal</p>
-          </div>
-          <div class="card-panel">
-            <p class="panel-label">Spirit Guide</p>
-            <p class="panel-value" id="guide-value">Your guide appears with your name.</p>
-          </div>
-        </div>
-        <div class="traits">
-          <p class="panel-label">Ancestral Traits</p>
-          <div class="trait-row" id="traits-row">
-            <span class="chip">Adaptability</span>
-            <span class="chip">Empathy</span>
-            <span class="chip">Intuition</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel" id="daily-panel">
-        <div class="panel-head">
-          <p>Today’s Guidance</p>
-          <button class="ghost" id="refresh-daily">↻</button>
-        </div>
-        <p id="daily-output" class="panel-body">Complete the form to receive guidance.</p>
-      </section>
-    </main>
-
-    <nav class="bottom-nav">
-      <button class="nav-item active">Home</button>
-      <button class="nav-item">Wisdom</button>
-      <button class="nav-item">Profile</button>
-    </nav>
-
-    <script src="app.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Africa Ancestry · Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Manrope:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="blob"></div>
+    <header class="nav">
+      <div class="brand">
+        <span class="brand-icon">AA</span>
+        Africa Ancestry
+      </div>
+      <button class="pill">Unlock Ancestral Profile · $19</button>
+    </header>
+
+    <main class="results">
+      <section class="wrap-header">
+        <div>
+          <p class="eyebrow">Your Preview</p>
+          <h1 id="profile-name">Your profile awaits.</h1>
+          <p class="lead" id="profile-summary">
+            Complete the form to reveal your ancestral profile preview.
+          </p>
+        </div>
+        <button class="ghost" id="refresh-guidance">Refresh guidance</button>
+      </section>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <p class="stat-label">Primary Tribe</p>
+          <p class="stat-value" id="stat-tribe">—</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Lineage Strength</p>
+          <p class="stat-value" id="stat-strength">—</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Spirit Guide</p>
+          <p class="stat-value" id="stat-guide">—</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Heritage Score</p>
+          <p class="stat-value" id="stat-score">—</p>
+        </div>
+      </section>
+
+      <section class="story-grid">
+        <div class="story-card">
+          <p class="card-label">Signature Traits</p>
+          <div class="chip-row" id="traits-row"></div>
+        </div>
+        <div class="story-card">
+          <p class="card-label">Symbolic Motifs</p>
+          <div class="chip-row" id="motifs-row"></div>
+        </div>
+        <div class="story-card">
+          <p class="card-label">Daily Guidance</p>
+          <p class="story-body" id="daily-output">Your guidance appears here.</p>
+        </div>
+      </section>
+
+      <section class="cta-panel">
+        <div>
+          <p class="card-label">Unlock the full profile</p>
+          <p class="story-body">Download your complete ancestral narrative.</p>
+        </div>
+        <button class="cta" id="unlock-cta">Unlock Ancestral Profile</button>
+        <button class="ghost" id="copy-summary">Copy preview</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <h4>Resources</h4>
+        <p>Profile FAQs</p>
+        <p>Support</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <p>About</p>
+        <p>Privacy</p>
+        <p>Terms</p>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
