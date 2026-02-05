@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Africa Ancestry · Profile</title>
+    <meta
+      name="description"
+      content="Your Africa Ancestry preview: tribe stats, traits, motifs, and daily guidance. Unlock the full ancestral profile."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,11 +19,11 @@
   <body>
     <div class="blob"></div>
     <header class="nav">
-      <div class="brand">
+      <a class="brand" href="index.html" aria-label="Africa Ancestry home">
         <span class="brand-icon">AA</span>
-        Africa Ancestry
-      </div>
-      <button class="pill">Unlock Ancestral Profile · $19</button>
+        <span class="brand-text">Africa Ancestry</span>
+      </a>
+      <a class="pill" href="index.html#form">Unlock Ancestral Profile · $19</a>
     </header>
 
     <main class="results">
@@ -31,7 +35,21 @@
             Complete the form to reveal your ancestral profile preview.
           </p>
         </div>
-        <button class="ghost" id="refresh-guidance">Refresh guidance</button>
+        <div class="wrap-actions">
+          <a class="ghost" href="index.html#form">Edit details</a>
+          <button class="ghost" id="refresh-guidance">Refresh guidance</button>
+        </div>
+      </section>
+
+      <section class="progress-card" aria-label="Profile progress">
+        <div class="progress-row">
+          <p class="card-label" id="progress-label">Preview</p>
+          <p class="progress-percent" id="progress-percent">40%</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <p class="micro" id="progress-hint">Unlock to reveal the full profile story.</p>
       </section>
 
       <section class="stats-grid">
@@ -75,6 +93,25 @@
         </div>
         <button class="cta" id="unlock-cta">Unlock Ancestral Profile</button>
         <button class="ghost" id="copy-summary">Copy preview</button>
+        <button class="ghost" id="download-card">Download card</button>
+      </section>
+
+      <section class="locked" id="locked-section">
+        <div class="locked-head">
+          <p class="card-label">Full Profile</p>
+          <span class="lock-pill" id="lock-pill">Locked</span>
+        </div>
+        <div class="locked-body" id="locked-body">
+          <p class="story-body">
+            Unlock to reveal your full ancestral narrative, deeper traits, and a
+            ritual prompt built around your birth time.
+          </p>
+          <ul class="locked-list">
+            <li>Lineage story chapter</li>
+            <li>Expanded trait map</li>
+            <li>Ritual prompt + daily rhythm</li>
+          </ul>
+        </div>
       </section>
     </main>
 

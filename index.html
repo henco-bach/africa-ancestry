@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Africa Ancestry</title>
+    <meta
+      name="description"
+      content="Unlock a premium ancestral profile inspired by African lineage: traits, spirit guide, motifs, and daily guidance."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,21 +19,26 @@
   <body>
     <div class="blob"></div>
     <header class="nav">
-      <div class="brand">
+      <a class="brand" href="index.html" aria-label="Africa Ancestry home">
         <span class="brand-icon">AA</span>
-        Africa Ancestry
+        <span class="brand-text">Africa Ancestry</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
       </div>
-      <button class="pill">Unlock Ancestral Profile · $19</button>
+      <a class="pill" href="#form">Unlock Ancestral Profile · $19</a>
     </header>
 
     <main class="landing">
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Ancestral Profile</p>
-          <h1>Discover your lineage in a playful, premium way.</h1>
+          <h1>Meet the story your name carries.</h1>
           <p class="lead">
-            Africa Ancestry gives you a bright, friendly heritage wrap. Enter
-            your details, preview your profile, then unlock the full story.
+            A bright, friendly heritage wrap with stats, traits, symbolic motifs,
+            and daily guidance. Start with a preview, then unlock the full
+            ancestral profile.
           </p>
           <div class="hero-actions">
             <button class="cta" id="jump-to-form">Unlock Ancestral Profile</button>
@@ -46,12 +55,42 @@
             <p class="card-label">Your heritage wrap</p>
             <div class="badge">★</div>
           </div>
-          <h2>What you get</h2>
+          <h2>What you unlock</h2>
           <ul>
             <li>Lineage story + key traits</li>
             <li>Spirit guide + symbolic motifs</li>
             <li>Daily ancestral guidance</li>
           </ul>
+        </div>
+      </section>
+
+      <section class="how" id="how">
+        <h2>How it works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-top">
+              <span class="step-num">1</span>
+              <span class="step-icon" aria-hidden="true">✍️</span>
+            </div>
+            <p class="step-title">Enter your details</p>
+            <p class="step-body">Name, birth time, and a tribe path.</p>
+          </div>
+          <div class="step">
+            <div class="step-top">
+              <span class="step-num">2</span>
+              <span class="step-icon" aria-hidden="true">📊</span>
+            </div>
+            <p class="step-title">Preview your wrap</p>
+            <p class="step-body">Stats, traits, motifs, and today’s guidance.</p>
+          </div>
+          <div class="step">
+            <div class="step-top">
+              <span class="step-num">3</span>
+              <span class="step-icon" aria-hidden="true">🔓</span>
+            </div>
+            <p class="step-title">Unlock the full profile</p>
+            <p class="step-body">Get the full narrative + downloadable card.</p>
+          </div>
         </div>
       </section>
 
@@ -89,6 +128,51 @@
           <button class="cta" type="submit">Generate preview</button>
           <p class="micro">You’ll be taken to your preview page.</p>
         </form>
+      </section>
+
+      <section class="testimonials" id="testimonials">
+        <h2>People love their wraps</h2>
+        <div class="quote-grid">
+          <figure class="quote-card">
+            <blockquote>“Clean design. The story hit me in the chest.”</blockquote>
+            <figcaption>— Nandi</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>“The traits were so specific it felt personal.”</blockquote>
+            <figcaption>— Thabo</figcaption>
+          </figure>
+          <figure class="quote-card">
+            <blockquote>“I screenshotted the card and posted it immediately.”</blockquote>
+            <figcaption>— Zola</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="faq" id="faq">
+        <h2>FAQ</h2>
+        <div class="faq-grid">
+          <details class="faq-item">
+            <summary>What is the Ancestral Profile?</summary>
+            <p>
+              A premium, story-driven profile inspired by African lineage: stats,
+              traits, a spirit guide, motifs, and daily guidance.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Is this based on official records?</summary>
+            <p>
+              This is a crafted experience right now. Real-data integrations can
+              be added later as the product evolves.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>How do I share my results?</summary>
+            <p>
+              After you generate a preview, you can copy a share caption and
+              download a share card.
+            </p>
+          </details>
+        </div>
       </section>
     </main>
 
