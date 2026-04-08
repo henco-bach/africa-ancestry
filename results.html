@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Africa Ancestry · Your Profile</title>
+    <meta
+      name="description"
+      content="Your Africa Ancestry preview: tribe stats, lineage strength, and narrative. Unlock your full ancestral profile."
+    />
+    <link rel="icon" type="image/png" href="favicon.png?v=6" />
+    <link rel="shortcut icon" href="favicon.png?v=6" />
+    <link rel="apple-touch-icon" href="favicon.png?v=6" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Manrope:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* ── Auth modal ─────────────────────────────── */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.72);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 200;
+        padding: 16px;
+      }
+      .modal-overlay[hidden] { display: none; }
+      .modal-box {
+        background: #1a1a1a;
+        border: 1px solid #3a3a3a;
+        border-radius: 10px;
+        padding: 32px 28px;
+        width: 100%;
+        max-width: 400px;
+      }
+      .modal-box h2 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        color: #f5f0e8;
+      }
+      .modal-box p {
+        margin: 0 0 20px;
+        font-size: 13px;
+        color: #888;
+        line-height: 1.5;
+      }
+      .modal-field {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+      .modal-field input {
+        background: #111;
+        border: 1px solid #3a3a3a;
+        border-radius: 6px;
+        color: #f5f0e8;
+        font-size: 14px;
+        padding: 10px 12px;
+        outline: none;
+        transition: border-color 0.15s;
+        font-family: inherit;
+      }
+      .modal-field input:focus { border-color: #c9a84c; }
+      .modal-error {
+        font-size: 12px;
+        color: #e07070;
+        margin: 0 0 12px;
+        min-height: 16px;
+      }
+      .modal-actions { display: flex; flex-direction: column; gap: 10px; }
+
+      /* ── Unlock loading ─────────────────────────── */
+      .unlock-loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 40px 0;
+        text-align: center;
+      }
+      .unlock-loading[hidden] { display: none; }
+      .spinner {
+        width: 36px;
+        height: 36px;
+        border: 3px solid #3a3a3a;
+        border-top-color: #c9a84c;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .unlock-status-text {
+        font-size: 14px;
+        color: #888;
+        margin: 0;
+      }
+
+      /* ── Full report section ────────────────────── */
+      .full-report[hidden] { display: none; }
+      .narrative-section {
+        background: #1a1a1a;
+        border: 1px solid #2a2a2a;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 12px;
+      }
+      .narrative-section .section-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #c9a84c;
+        margin: 0 0 8px;
+      }
+      .narrative-section .section-body {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #ccc;
+        margin: 0;
+      }
+      .confidence-badge {
+        display: inline-block;
+        font-size: 11px;
+        color: #888;
+        margin-top: 6px;
+      }
+      .sources-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .sources-list li {
+        font-size: 12px;
+        color: #777;
+        padding: 8px 0;
+        border-bottom: 1px solid #2a2a2a;
+        line-height: 1.5;
+      }
+      .sources-list li:last-child { border-bottom: none; }
+      .pdf-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 24px;
+      }
+      .email-notice {
+        font-size: 13px;
+        color: #888;
+        margin: 0;
+      }
+      .email-notice strong { color: #c9a84c; }
+      .pdf-btn-loading { opacity: 0.6; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <!-- Backend URL config — set before deploying -->
+    <script>
+      window.AA_BACKEND_URL = 'https://africa-ancestry-production.up.railway.app';
+    </script>
+
+    <div class="blob"></div>
+
+    <!-- ── Auth modal ─────────────────────────────── -->
+    <div id="auth-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+      <div class="modal-box">
+        <h2 id="auth-modal-title">Unlock your full report</h2>
+        <p>Create a free account to unlock your complete ancestral profile and receive your PDF certificate.</p>
+        <div class="modal-field">
+          <input type="email" id="auth-email" placeholder="Email address" autocomplete="email" required />
+          <input type="password" id="auth-password" placeholder="Password (min 8 characters)" autocomplete="new-password" minlength="8" required />
+        </div>
+        <p class="modal-error" id="auth-error" aria-live="polite"></p>
+        <div class="modal-actions">
+          <button class="cta" id="auth-submit">Unlock for R299</button>
+          <button class="ghost" id="modal-close">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <header class="nav">
+      <a class="brand" href="index.html" aria-label="Africa Ancestry home">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="Image%20Assets/Logo2.png?v=3" alt="" loading="eager" decoding="async" />
+        </span>
+        <span class="brand-text">Africa Ancestry</span>
+      </a>
+      <a class="pill" href="index.html#form">New Profile</a>
+    </header>
+
+    <main class="results">
+      <section class="wrap-header">
+        <div>
+          <p class="eyebrow">Your Preview</p>
+          <h1 id="profile-name">Your profile awaits.</h1>
+          <p class="lead" id="profile-summary">
+            Complete the form to reveal your ancestral profile preview.
+          </p>
+        </div>
+        <div class="wrap-actions">
+          <a class="ghost" href="questionnaire.html">Edit details</a>
+        </div>
+      </section>
+
+      <section class="progress-card" aria-label="Profile progress">
+        <div class="progress-row">
+          <p class="card-label" id="progress-label">Preview</p>
+          <p class="progress-percent" id="progress-percent">—</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+        <p class="micro" id="progress-hint">Unlock to reveal the full profile story.</p>
+      </section>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <p class="stat-label">Primary Nation</p>
+          <p class="stat-value" id="stat-tribe">—</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Lineage Strength</p>
+          <p class="stat-value" id="stat-strength">—</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Clan / Lineage</p>
+          <p class="stat-value" id="stat-guide">—</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-label">Heritage Score</p>
+          <p class="stat-value" id="stat-score">—</p>
+        </div>
+      </section>
+
+      <section class="story-grid">
+        <div class="story-card">
+          <p class="card-label">Ethno-Linguistic Family</p>
+          <div class="chip-row" id="traits-row"></div>
+        </div>
+        <div class="story-card">
+          <p class="card-label">Primary Regions</p>
+          <div class="chip-row" id="motifs-row"></div>
+        </div>
+        <div class="story-card">
+          <p class="card-label">Ancestral Summary</p>
+          <p class="story-body" id="daily-output">Your ancestry narrative appears here.</p>
+        </div>
+      </section>
+
+      <!-- Unlock loading / polling state -->
+      <div id="unlock-loading" class="unlock-loading" hidden>
+        <div class="spinner"></div>
+        <p class="unlock-status-text" id="unlock-status">Verifying payment...</p>
+      </div>
+
+      <!-- CTA panel (shown when not yet unlocked) -->
+      <section class="cta-panel" id="cta-panel">
+        <div>
+          <p class="card-label">Unlock the full profile</p>
+          <p class="story-body">
+            Get your complete ancestral narrative — all 7 sections, source references,
+            and a PDF certificate emailed to you.
+          </p>
+        </div>
+        <button class="cta" id="unlock-cta">Unlock Full Report · R299</button>
+        <button class="ghost" id="copy-summary">Copy preview</button>
+      </section>
+
+      <!-- Locked preview teaser (shown when not yet unlocked) -->
+      <section class="locked" id="locked-section">
+        <div class="locked-head">
+          <p class="card-label">Full Profile</p>
+          <span class="lock-pill" id="lock-pill">Locked</span>
+        </div>
+        <div class="locked-body" id="locked-body">
+          <p class="story-body">
+            Unlock to reveal your complete ancestral narrative, clan lineage details,
+            and a PDF certificate emailed directly to you.
+          </p>
+          <ul class="locked-list">
+            <li>Complete 7-section ancestry narrative</li>
+            <li>Clan, lineage, and kingdom details</li>
+            <li>Source references and evidence notes</li>
+            <li>PDF certificate emailed to you</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Full report (shown after unlock) -->
+      <section class="full-report" id="full-report" hidden>
+        <div class="locked-head" style="margin-bottom:16px;">
+          <p class="card-label">Full Ancestry Profile</p>
+          <span class="lock-pill" style="background:rgba(201,168,76,0.15);color:#c9a84c;border-color:rgba(201,168,76,0.3);">Unlocked</span>
+        </div>
+
+        <div id="narrative-sections"></div>
+
+        <div id="sources-wrap" style="margin-top:20px;" hidden>
+          <p class="card-label" style="margin-bottom:12px;">Sources &amp; References</p>
+          <ul class="sources-list" id="sources-list"></ul>
+        </div>
+
+        <div class="pdf-actions">
+          <button class="cta" id="download-pdf">Download PDF Certificate</button>
+          <p class="email-notice" id="email-notice" hidden>
+            <strong>Report emailed.</strong> Check your inbox for your PDF certificate.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <h4>Africa Ancestry</h4>
+        <p>Results are probabilistic and for cultural use only.</p>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <p><a href="questionnaire.html" style="color:inherit;">Start new profile</a></p>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="results.js"></script>
+  </body>
+</html>

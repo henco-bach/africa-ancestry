@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>African Heritage Certificate</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Georgia", "Times New Roman", serif;
+        color: #1c1c1c;
+        line-height: 1.45;
+        background: #fff;
+      }
+
+      .certificate {
+        width: 100%;
+      }
+
+      .page {
+        min-height: 268mm;
+        border: 2px solid #9a7d2e;
+        padding: 20mm 16mm;
+        position: relative;
+        page-break-after: always;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 32px;
+        letter-spacing: 1px;
+        color: #7d641f;
+        margin: 0;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-top: 6px;
+        margin-bottom: 28px;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #7d641f;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        font-size: 17px;
+        margin-bottom: 18px;
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 16px;
+        margin-bottom: 20px;
+      }
+
+      .meta-item {
+        padding: 10px;
+        border: 1px solid #dfd3aa;
+        background: #faf7ed;
+      }
+
+      .label {
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        color: #6b6b6b;
+        margin-bottom: 4px;
+      }
+
+      .value {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .content {
+        margin-top: 16px;
+      }
+
+      .content p {
+        margin: 0 0 12px;
+      }
+
+      .map-wrap {
+        margin-top: 18px;
+        text-align: center;
+      }
+
+      .map-wrap img {
+        width: 75%;
+        max-height: 210px;
+        object-fit: contain;
+        border: 1px solid #d8c994;
+        padding: 8px;
+        background: #fff;
+      }
+
+      .verify-area {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .verify-area img {
+        width: 130px;
+        height: 130px;
+      }
+
+      .small {
+        font-size: 12px;
+        color: #565656;
+      }
+
+      .signature-block {
+        margin-top: 30px;
+      }
+
+      .signature-line {
+        margin-top: 26px;
+        width: 220px;
+        border-bottom: 1px solid #444;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="certificate">
+      <section class="page">
+        <h1 class="title">Certificate of African Heritage</h1>
+        <p class="subtitle">Identity • Origin • Continuity</p>
+
+        <p class="lead">
+          This certifies that <strong>{{fullName}}</strong> is documented within
+          the lineage and historical framework detailed below.
+        </p>
+
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="label">Date of Birth</span>
+            <span class="value">{{birthDate}}</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">Place of Birth</span>
+            <span class="value">{{birthPlace}}</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">Nation</span>
+            <span class="value">{{nation}}</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">Ethnolinguistic Group</span>
+            <span class="value">{{ethnolinguisticGroup}}</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">Classification</span>
+            <span class="value">{{classification}}</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">Selected Regions</span>
+            <span class="value">{{selectedRegionsLabel}}</span>
+          </div>
+          <div class="meta-item">
+            <span class="label">Issued</span>
+            <span class="value">{{issueDate}}</span>
+          </div>
+        </div>
+
+        <div class="content">
+          <h2 class="section-title">Historical Context</h2>
+          <p>{{historicalContext}}</p>
+
+          <h2 class="section-title">Clan Context</h2>
+          <p>{{clanContext}}</p>
+
+          <h2 class="section-title">Seasonal Symbolism</h2>
+          <p>{{seasonalSymbolism}}</p>
+
+          <h2 class="section-title">Name Meaning</h2>
+          <p>{{nameMeaningParagraph}}</p>
+        </div>
+      </section>
+
+      <section class="page page-break">
+        <h2 class="section-title">Regional Heritage Map</h2>
+        <div class="map-wrap">
+          <img src="{{regionMapPath}}" alt="Regional map" />
+        </div>
+
+        <div class="verify-area">
+          <img src="{{qrCodePath}}" alt="QR code for verification" />
+          <div>
+            <h2 class="section-title">Verification</h2>
+            <p class="small">
+              Certificate ID: <strong>{{certificateID}}</strong>
+            </p>
+            <p class="small">
+              Scan this QR code or visit the verification endpoint to confirm
+              authenticity.
+            </p>
+          </div>
+        </div>
+
+        <div class="signature-block">
+          <div class="signature-line"></div>
+          <p class="small">Authorized Certification Officer</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

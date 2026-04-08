@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ancestral Profile Questionnaire</title>
+    <meta
+      name="description"
+      content="Complete your profile questionnaire and generate your ancestral profile."
+    />
+    <link rel="icon" type="image/png" href="favicon.png?v=6" />
+    <link rel="shortcut icon" href="favicon.png?v=6" />
+    <link rel="apple-touch-icon" href="favicon.png?v=6" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="questionnaire.css" />
+    <script>window.AA_BACKEND_URL = 'https://africa-ancestry-production.up.railway.app';</script>
+    <script src="questionnaire.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <a class="brand" href="index.html" aria-label="Africa Ancestry home">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="Image%20Assets/Logo2.png?v=3" alt="" loading="eager" decoding="async" />
+        </span>
+        <span class="brand-text"><strong>Africa</strong> Ancestry</span>
+      </a>
+      <a class="back-link" href="index.html">Back To Home</a>
+    </header>
+
+    <main class="questionnaire-shell">
+      <section class="intro-panel" data-flow-state="form">
+        <p class="eyebrow">Step Into Your Story</p>
+        <h1>Ancestral Profile Questionnaire</h1>
+        <p>
+          Complete a short questionnaire. After submission, we gather your details and generate a preliminary
+          ancestral profile.
+        </p>
+      </section>
+
+      <section class="form-panel" data-flow-state="form">
+        <div class="progress-row" aria-label="Questionnaire progress">
+          <button class="progress-pill active" type="button" data-step-pill="1" disabled>1. Personal</button>
+          <button class="progress-pill" type="button" data-step-pill="2" disabled>2. Heritage</button>
+        </div>
+
+        <form id="ancestry-form" novalidate>
+          <fieldset class="form-step active" data-step="1">
+            <legend>Personal Details</legend>
+
+            <label>
+              Given Names
+              <input type="text" name="givenNames" autocomplete="given-name" required />
+            </label>
+
+            <label>
+              Surname
+              <input type="text" name="surname" autocomplete="family-name" required />
+            </label>
+
+            <div class="choice-field">
+              <span class="choice-label">Gender</span>
+              <div class="choice-wrap" role="group" aria-label="Gender selection">
+                <button type="button" class="choice-btn" data-gender-choice="male" aria-pressed="false">Male</button>
+                <button type="button" class="choice-btn" data-gender-choice="female" aria-pressed="false">Female</button>
+              </div>
+              <input type="hidden" name="gender" required />
+            </div>
+
+            <label>
+              Date Of Birth
+              <input
+                type="text"
+                name="dateOfBirth"
+                placeholder="dd/mm/yyyy"
+                inputmode="numeric"
+                maxlength="10"
+                autocomplete="bday"
+                required
+              />
+            </label>
+
+            <label>
+              Place Of Birth
+              <div class="place-autocomplete">
+                <input
+                  type="text"
+                  name="birthPlace"
+                  placeholder="e.g. Cape Town, Bloemfontein, Johannesburg"
+                  autocomplete="off"
+                  required
+                />
+                <div class="place-suggestions" data-birth-place-menu hidden></div>
+                <input type="hidden" name="birthPlacePlaceId" />
+                <input type="hidden" name="birthPlaceLatitude" />
+                <input type="hidden" name="birthPlaceLongitude" />
+              </div>
+            </label>
+            <p class="hint">Start typing and choose a suggested place from the list.</p>
+          </fieldset>
+
+          <fieldset class="form-step" data-step="2">
+            <legend>Heritage Context</legend>
+            <p class="hint">
+              Choose one or more heritage groups that best match your lineage.
+            </p>
+
+            <div class="heritage-groups" aria-label="Cultural groups and subgroups">
+              <p class="group-label">Cultural Group, Lineage, Or Clan Region</p>
+
+              <article class="heritage-group-card">
+                <h4>Nguni Lineages</h4>
+                <div class="heritage-chip-wrap">
+                  <button type="button" class="heritage-chip" data-region-chip="zulu" aria-pressed="false">Zulu</button>
+                  <button type="button" class="heritage-chip" data-region-chip="xhosa" aria-pressed="false">Xhosa</button>
+                  <button type="button" class="heritage-chip" data-region-chip="ndebele" aria-pressed="false">Ndebele</button>
+                  <button type="button" class="heritage-chip" data-region-chip="swazi" aria-pressed="false">Swazi</button>
+                </div>
+              </article>
+
+              <article class="heritage-group-card">
+                <h4>Sotho-Tswana Lineages</h4>
+                <div class="heritage-chip-wrap">
+                  <button type="button" class="heritage-chip" data-region-chip="basotho" aria-pressed="false">Basotho</button>
+                  <button type="button" class="heritage-chip" data-region-chip="batswana" aria-pressed="false">Batswana</button>
+                  <button type="button" class="heritage-chip" data-region-chip="bapedi" aria-pressed="false">Bapedi</button>
+                </div>
+              </article>
+
+              <article class="heritage-group-card">
+                <h4>Other Ethnic Groups</h4>
+                <div class="heritage-chip-wrap">
+                  <button type="button" class="heritage-chip" data-region-chip="tsonga_shangaan" aria-pressed="false">Tsonga / Shangaan</button>
+                  <button type="button" class="heritage-chip" data-region-chip="venda" aria-pressed="false">Venda</button>
+                  <button type="button" class="heritage-chip" data-region-chip="shona_ndebele_zw" aria-pressed="false">Shona / Ndebele (Zimbabwe)</button>
+                  <button type="button" class="heritage-chip" data-region-chip="chewa_ngoni" aria-pressed="false">Chewa / Ngoni</button>
+                  <button type="button" class="heritage-chip" data-region-chip="ovambo_herero" aria-pressed="false">Ovambo / Herero</button>
+                  <button type="button" class="heritage-chip" data-region-chip="khoisan" aria-pressed="false">Khoisan Communities</button>
+                  <button type="button" class="heritage-chip" data-region-chip="mozambique_coastal" aria-pressed="false">Mozambique Coastal Lineages</button>
+                </div>
+              </article>
+
+            </div>
+            <p class="hint">Pick at least one heritage button to continue.</p>
+
+            <label>
+              Upload A Photo For Your Cultural Illustration (Optional)
+              <input type="file" name="photoUpload" accept="image/png,image/jpeg,image/webp" />
+            </label>
+            <p class="hint">
+              This helps us create a personalized cultural illustration. You can skip this now and add it later.
+            </p>
+            <p class="hint">You do not need perfect answers. We use what you share to guide your lineage discovery.</p>
+          </fieldset>
+
+          <p class="form-error" aria-live="polite" data-form-error></p>
+
+          <div class="form-actions">
+            <button class="btn btn-secondary" type="button" data-back-btn hidden>Back</button>
+            <button class="btn btn-primary" type="button" data-next-btn>Next</button>
+            <button class="btn btn-primary" type="submit" data-submit-btn hidden>Generate My Certificate</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="gathering-panel" data-flow-state="gathering" hidden>
+        <p class="eyebrow">Gathering Information</p>
+        <h2>Creating Your Ancestral Profile</h2>
+        <p class="gathering-copy">Collecting and researching your lineage data. This takes a few seconds.</p>
+
+        <div class="loading-orb" aria-hidden="true">
+          <div class="loading-ring"></div>
+          <div class="loading-ring loading-ring-soft"></div>
+          <div class="loading-core">
+            <span class="loading-percent" data-loading-progress>0%</span>
+            <span class="loading-label">Researching</span>
+          </div>
+        </div>
+
+        <p class="loading-status" data-loading-status>Preparing profile inputs...</p>
+
+        <ul class="gathering-list">
+          <li data-task="1">Validating personal and heritage selections</li>
+          <li data-task="2">Cross-referencing lineage signals with historical datasets</li>
+          <li data-task="3">Scoring confidence and assembling narrative highlights</li>
+          <li data-task="4">Finalizing your preliminary ancestral profile</li>
+        </ul>
+      </section>
+
+      <section class="result-panel" data-flow-state="result" hidden>
+        <p class="eyebrow">Certificate Ready</p>
+        <h2>Your Heritage Certificate Has Been Generated</h2>
+
+        <article class="result-card">
+          <h3 data-result-name>Certificate</h3>
+          <p data-result-summary></p>
+
+          <div class="result-grid">
+            <div>
+              <h4>Full Name</h4>
+              <p data-result-full-name>Pending</p>
+            </div>
+            <div>
+              <h4>Nation</h4>
+              <p data-result-nation>Pending</p>
+            </div>
+            <div>
+              <h4>Certificate ID</h4>
+              <p data-result-certificate-id>Pending</p>
+            </div>
+            <div>
+              <h4>Verification</h4>
+              <p data-result-verify-status>Pending</p>
+            </div>
+          </div>
+
+          <p class="result-note" data-result-source></p>
+        </article>
+
+        <div class="result-actions">
+          <a class="btn btn-primary" href="#" data-download-link hidden>Download Certificate PDF</a>
+          <button class="btn btn-secondary" type="button" data-start-over>Start Over</button>
+          <a class="btn btn-primary" href="index.html">Return Home</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

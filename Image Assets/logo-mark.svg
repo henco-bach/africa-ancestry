@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 120" role="img" aria-labelledby="title">
+  <title>Africa Ancestry Logo Mark</title>
+  <defs>
+    <linearGradient id="gold" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd27a"/>
+      <stop offset="0.55" stop-color="#e6a53a"/>
+      <stop offset="1" stop-color="#b7751e"/>
+    </linearGradient>
+    <clipPath id="africa-shape">
+      <path d="M29 8C36 2 45 1 54 4c8 3 15 10 18 18 8 1 15 7 18 14 3 8 1 16-3 22 4 7 5 15 2 23-3 8-10 14-19 17 2 7 1 15-4 21-5 7-13 11-21 11-9 0-17-4-23-11-5-7-6-15-4-23-8-3-14-8-17-16-4-8-3-17 1-24-5-6-7-15-4-23 3-9 11-15 20-16 2-5 6-9 10-12z"/>
+    </clipPath>
+  </defs>
+
+  <path d="M29 8C36 2 45 1 54 4c8 3 15 10 18 18 8 1 15 7 18 14 3 8 1 16-3 22 4 7 5 15 2 23-3 8-10 14-19 17 2 7 1 15-4 21-5 7-13 11-21 11-9 0-17-4-23-11-5-7-6-15-4-23-8-3-14-8-17-16-4-8-3-17 1-24-5-6-7-15-4-23 3-9 11-15 20-16 2-5 6-9 10-12z" fill="url(#gold)"/>
+
+  <g clip-path="url(#africa-shape)" fill="none" stroke="#130d08" stroke-linecap="round" stroke-width="3.8" opacity="0.95">
+    <path d="M20 18c17 2 30 7 41 16"/>
+    <path d="M15 29c19 2 34 8 47 18"/>
+    <path d="M14 41c21 2 37 9 52 20"/>
+    <path d="M16 53c23 3 40 10 55 22"/>
+    <path d="M21 65c24 3 38 10 50 21"/>
+    <path d="M26 76c22 3 34 8 44 17"/>
+    <path d="M30 87c18 2 29 7 37 14"/>
+    <path d="M36 98c13 2 21 5 28 10"/>
+    <path d="M25 13c20-1 36 5 49 13"/>
+  </g>
+</svg>
